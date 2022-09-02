@@ -218,3 +218,19 @@ public static void main(String[] args)throws Exception
 	
 }
 --------------------------------------------------------------------------------------------------
+example-3
+------------------
+package org.perfios;
+import java.sql.*;
+public class FirstJdbc 
+{
+public static void main(String[] args)throws Exception 
+{
+	Class.forName("com.mysql.jdbc.Driver");
+	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/perfios","root","1234");
+	Statement st=con.createStatement();
+	st.execute("delete from student where rollno=101");
+	System.out.println("one row deleted");
+}
+	}
+-----------------------------------------------------------------------------------------------------------------------
