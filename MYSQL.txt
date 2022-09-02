@@ -2,7 +2,7 @@ to display all the databases;
 1)show databases;
 ---------------------------------------------------------
 to create a database
-2)create database allstates;
+2)create database perfios;
 ------------------------------------------------------------
 to go into the database
 3)use allstates;
@@ -180,3 +180,24 @@ RDBMS
 bank ---accno((accno-1,2,3)primary key---cannot enter duplicate data,it cannot be empty),name,balnce
 transaction ----accno((1,2,3,1,2,3)forign key relate to bank table),withdraw,deposite
 -----------------------------------------------------------------------------------------------------------------
+example-1
+---------------------
+package org.perfios;
+import java.sql.*;
+public class FirstJdbc 
+{
+public static void main(String[] args)throws Exception 
+{
+	//loading the driver
+	Class.forName("com.mysql.jdbc.Driver");
+	//create connection
+	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/perfios","root","1234");
+	//statement
+	Statement st=con.createStatement();
+	//execute the statement
+	st.execute("insert into student values(105,'avijit','bangalore')");
+	System.out.println("one row inserted");
+}
+	
+}
+------------------------------------------------------------------------------------------------
