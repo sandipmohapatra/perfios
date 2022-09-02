@@ -253,3 +253,48 @@ public static void main(String[] args)throws Exception
 	System.out.println();
 }	}
 ---------------------------------------------------------------------------------------------------------
+we want to insert,update,delete data dynamically.
+--------------------------------------------------------------------
+in place of statement() we will be using PreparedStatement();
+---------------------------------------------------------------------------------------
+example-5
+---------------------
+package org.perfios;
+import java.sql.*;
+import java.util.*;
+public class FirstJdbc 
+{
+public static void main(String[] args)throws Exception 
+{
+	Class.forName("com.mysql.jdbc.Driver");
+	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/perfios","root","1234");
+	Scanner ob=new Scanner(System.in);
+	System.out.println("enter rollno,name,address");
+	int rollno=ob.nextInt();
+	String name=ob.next();
+	String address=ob.next();
+	PreparedStatement st=con.prepareStatement("insert into student values(?,?,?)");
+	st.setInt(1,rollno);
+	st.setString(2,name);
+	st.setString(3,address);
+	st.execute();
+	System.out.println("row inserted");
+}	}
+---------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
